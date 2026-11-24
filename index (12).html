@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="SUMINISTROS RAMON - Protección y equipo de seguridad industrial de alta calidad para tu empresa.">
+    <title>SUMINISTROS RAMON | Equipo de Seguridad Industrial</title>
+    <style>
+        /* Variables Estilo Industrial */
+        :root {
+            --bg-principal: #0f172a;       /* Azul/Gris carbón oscuro */
+            --bg-seccion: #1e293b;         /* Gris industrial */
+            --bg-tarjeta: #243147;         /* Gris metálico suave */
+            --amarillo-seguridad: #f59e0b; /* Naranja/Amarillo de alta visibilidad */
+            --texto-claro: #f8fafc;
+            --texto-secundario: #94a3b8;
+            --borde-tarjeta: #334155;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en el menú */
+        }
+
+        body {
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            line-height: 1.6;
+            animation: fadeIn 0.8s ease-in; /* Animación de entrada */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Encabezado Principal */
+        header {
+            background-color: #000000;
+            padding: 1.5rem 2rem;
+            border-bottom: 4px solid var(--amarillo-seguridad);
+            position: relative;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            text-align: left;
+            flex-grow: 1;
+            padding: 2rem 2.5rem;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            background-image: 
+                linear-gradient(
+                    to right, 
+                    rgba(0, 0, 0, 0.45) 0%, 
+                    rgba(0, 0, 0, 0.85) 75%, 
+                    #000000 100%
+                ),
+                url('equipo_fondo.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        header h1 {
+            color: var(--amarillo-seguridad);
+            font-size: 2.2rem;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 0.3rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+        }
+
+        header p {
+            color: var(--texto-claro);
+            font-size: 1.1rem;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+            margin-bottom: 1rem;
+        }
+
+        .btn-tienda-header {
+            display: inline-block;
+            background-color: var(--amarillo-seguridad);
+            color: #000000;
+            font-weight: 700;
+            padding: 0.6rem 1.4rem;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            border: 2px solid var(--amarillo-seguridad);
+        }
+
+        .btn-tienda-header:hover {
+            background-color: #d97706;
+            border-color: #d97706;
+            transform: translateY(-2px);
+        }
+
+        .header-logo {
+            max-width: 280px;
+            height: auto;
+            flex-shrink: 0;
+            margin-left: 20px;
+        }
+
+        .header-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block;
+        }
+
+        /* Navegación */
+        nav {
+            background-color: #080d1a;
+            padding: 1rem;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 900;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--amarillo-seguridad);
+        }
+
+        nav a.nav-tienda {
+            color: var(--amarillo-seguridad);
+            border: 1px solid var(--amarillo-seguridad);
+            padding: 6px 14px;
+            border-radius: 4px;
+        }
+
+        nav a.nav-tienda:hover {
+            background-color: var(--amarillo-seguridad);
+            color: #000;
+        }
+
+        /* Contenedor General */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        section {
+            margin-bottom: 2.5rem;
+            background: var(--bg-seccion);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--borde-tarjeta);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        h2 {
+            color: var(--texto-claro);
+            border-left: 5px solid var(--amarillo-seguridad);
+            padding-left: 12px;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            letter-spacing: 0.8px;
+        }
+
+        /* Sección ¿Quiénes somos? */
+        .nosotros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .nosotros-card {
+            background: var(--bg-tarjeta);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--borde-tarjeta);
+            transition: transform 0.3s ease;
+        }
+
+        .nosotros-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .nosotros-card h3 {
+            color: var(--amarillo-seguridad);
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+        }
+
+        .nosotros-card p {
+            color: var(--texto-secundario);
+            font-size: 0.95rem;
+        }
+
+        /* Sección Marcas */
+        .grid-marcas {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+
+        .marca-card {
+            background: var(--bg-tarjeta);
+            border: 1px solid var(--borde-tarjeta);
+            border-radius: 8px;
+            padding: 1.2rem 1rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .marca-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--amarillo-seguridad);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+        }
+
+        .marca-card img {
+            max-width: 100%;
+            height: 50px;
+            object-fit: contain;
+            margin-bottom: 0.8rem;
+            filter: brightness(0.9) contrast(1.1);
+        }
+
+        .marca-card span {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--texto-claro);
+            letter-spacing: 0.5px;
+        }
+
+        /* Botones extras al final del catálogo */
+        .botones-catalogo {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-descarga {
+            background-color: transparent;
+            color: var(--amarillo-seguridad);
+        }
+
+        .btn-descarga:hover {
+            background-color: var(--amarillo-seguridad);
+            color: #000000;
+        }
+
+        /* Formulario de Cotizaciones */
+        .form-group {
+            margin-bottom: 1.2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.4rem;
+            font-weight: 600;
+            color: var(--texto-claro);
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--borde-tarjeta);
+            background-color: var(--bg-principal);
+            color: var(--texto-claro);
+            border-radius: 4px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--amarillo-seguridad);
+            box-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+        }
+
+        button[type="submit"] {
+            background-color: var(--amarillo-seguridad);
+            color: #000;
+            font-weight: bold;
+            border: none;
+            padding: 0.9rem 1.8rem;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #d97706;
+        }
+        
+        button[type="submit"]:active {
+            transform: scale(0.98);
+        }
+
+        /* Mapa / Ubicación */
+        .mapa-container iframe {
+            width: 100%;
+            height: 350px;
+            border: 0;
+            border-radius: 6px;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        /* Sección Contacto Mejorada con Redes */
+        .contacto-seccion {
+            text-align: center;
+        }
+
+        .contacto-grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .info-contacto, .redes-contacto {
+            background: var(--bg-tarjeta);
+            border: 1px solid var(--borde-tarjeta);
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: left;
+        }
+
+        .info-contacto h3, .redes-contacto h3 {
+            color: var(--amarillo-seguridad);
+            margin-bottom: 1.2rem;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--borde-tarjeta);
+            padding-bottom: 0.5rem;
+        }
+
+        .info-contacto p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: var(--texto-claro);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .botones-sociales {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .btn-social {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .btn-social.facebook {
+            background-color: #1877F2;
+        }
+
+        .btn-social.instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .btn-social:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            color: white;
+        }
+
+        /* Botón Flotante de WhatsApp */
+        .btn-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 1000;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128c7e;
+            transform: scale(1.05);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background-color: #080d1a;
+            color: var(--texto-secundario);
+            margin-top: 2rem;
+            border-top: 1px solid var(--borde-tarjeta);
+            font-size: 0.9rem;
+        }
+
+        /* Estilos Modificados del Carrusel para Imágenes */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-tarjeta);
+            border: 1px solid var(--borde-tarjeta);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fondo negro para que las imágenes resalten */
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(15, 23, 42, 0.7); /* Fondo semi-transparente sobre la imagen */
+            color: var(--amarillo-seguridad);
+            border: 1px solid var(--amarillo-seguridad);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--amarillo-seguridad);
+            color: #000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px; /* Más cerca del borde para no tapar tanto la imagen */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo sutil para que los puntos se vean */
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            opacity: 0.5;
+        }
+
+        .dot:hover {
+            opacity: 1;
+        }
+
+        .dot.active {
+            background-color: var(--amarillo-seguridad);
+            transform: scale(1.3);
+            opacity: 1;
+        }
+
+        /* Media Queries para Móviles */
+        @media (max-width: 768px) {
+            nav {
+                gap: 10px;
+                padding: 1rem 0.5rem;
+            }
+            nav a {
+                font-size: 0.85rem;
+                padding: 0.3rem;
+            }
+            .header-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .header-text {
+                padding: 1.5rem;
+                text-align: center;
+            }
+            .header-logo {
+                margin-left: 0;
+                margin-top: 15px;
+            }
+            h2 {
+                font-size: 1.3rem;
+            }
+            .contacto-grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+                left: 10px;
+            }
+            .carousel-btn.next {
+                right: 10px;
+                left: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="header-text">
+                <h1>SUMINISTROS RAMON</h1>
+                <p>Protección y equipo de alta calidad para tu empresa</p>
+                <a href="https://tu-tienda-en-linea.com" class="btn-tienda-header" target="_blank">🛒 Ir a la Tienda en Línea</a>
+            </div>
+            <div class="header-logo">
+                <img src="logo.png" alt="Suministros Ramón Logo">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#nosotros">¿Quiénes Somos?</a>
+        <a href="#Marcas">Marcas</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#ubicacion">Ubicación</a>
+        <a href="#Cotizaciones">Cotizaciones</a>
+        <a href="#Contacto">Contacto</a>
+        <a href="https://tu-tienda-en-linea.com" target="_blank" class="nav-tienda">🛒 Tienda en Línea</a>
+    </nav>
+
+    <div class="container">
+
+        <!-- Sección ¿Quiénes Somos? -->
+        <section id="nosotros">
+            <h2>¿Quiénes Somos?</h2>
+            <p style="color: var(--texto-secundario);">
+                SUMINISTROS RAMON como nombre comercial es una empresa 100% mexicana, fundada y establecida en el municipio de Veracruz Ignacio de la Llave, estado de Veracruz, para atender las necesidades crecientes del mercado en el área general de equipo de seguridad industrial contando con productos como cascos, lentes, guantes, tapones auditivos, botas, overoles Tyvek, chalecos, conos, entre otros.
+            </p>
+            <div class="nosotros-grid">
+                <div class="nosotros-card">
+                    <h3>Misión</h3>
+                    <p>Ser una empresa flexible que tiene como principal objetivo crear vínculos que fortalezcan y beneficien a ambas partes ofreciendo calidad y servicio.</p>
+                </div>
+
+                <div class="nosotros-card">
+                    <h3>Visión</h3>
+                    <p>Ser una empresa líder, ofreciendo la mejor calidad, servicio y precio, logrando la satisfacción de nuestros clientes, posicionándonos como una de las mejores empresas en nuestro ramo.</p>
+                </div>
+
+                <div class="nosotros-card">
+                    <h3>Política de calidad</h3>
+                    <p>En Suministros Ramón, comprendemos que la calidad es un valor esencial para la satisfacción de nuestros clientes, por lo que nos comprometemos a tener los productos con la mejor calidad.</p>
+                </div>
+            </div>
+        </section> 
+        
+        <!-- Sección Marcas -->
+        <section id="Marcas">
+            <h2>Marcas Distribuidas</h2>
+            <p style="color: var(--texto-secundario);">
+                Trabajamos con los fabricantes e importadores líderes en equipo de protección personal e higiene industrial.
+            </p>
+            
+            <div class="grid-marcas">
+                <div class="marca-card"><img src="DermaCare.png" alt="DermaCare"><span>DERMACARE</span></div>
+                <div class="marca-card"><img src="Global_Glove.png" alt="Global Glove"><span>GLOBAL GLOVE</span></div>
+                <div class="marca-card"><img src="saefit.png" alt="Safe-Fit"><span>SAFE-FIT</span></div>
+                <div class="marca-card"><img src="msa.png" alt="MSA Safety"><span>MSA</span></div>
+                <div class="marca-card"><img src="mr.png" alt="MR Seguridad"><span>MR SEGURIDAD</span></div>
+                <div class="marca-card"><img src="her.png" alt="Herhild"><span>HERHILD</span></div>
+                <div class="marca-card"><img src="3m.png" alt="3M"><span>3M</span></div>
+                <div class="marca-card"><img src="ans.png" alt="Ansell"><span>ANSELL</span></div>
+                <div class="marca-card"><img src="saf.png" alt="Romak"><span>ROMAK</span></div>
+                <div class="marca-card"><img src="mod.png" alt="Moldex"><span>MOLDEX</span></div>
+                <div class="marca-card"><img src="bri.png" alt="Brick"><span>BRICK</span></div>
+                <div class="marca-card"><img src="btp.png" alt="BTP"><span>BTP LATINOAMÉRICA</span></div>
+                <div class="marca-card"><img src="sta.png" alt="Steelpro"><span>STEELPRO SAFETY</span></div>
+                <div class="marca-card"><img src="inf.png" alt="Infra"><span>INFRA</span></div>
+                <div class="marca-card"><img src="dur.png" alt="Duramil"><span>CALZADO DURAMIL</span></div>
+                <div class="marca-card"><img src="idr.png" alt="Idra Power"><span>IDRA POWER</span></div>
+            </div>
+        </section>
+
+        <!-- Sección Catálogo -->
+        <section id="catalogo">
+            <h2>Catálogo de Productos</h2>
+            
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    
+                    <!-- Diapositivas de la presentación en imágenes -->
+                    <div class="carousel-slide">
+                        <img src="diapositiva1.jpg" alt="Anatomía de la protección: Catálogo general">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva2.jpg" alt="Protección anatómica del tercio superior: Cabeza, Visual, Respiratoria, Auditiva">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva3.jpg" alt="Calzado ergonómico y máxima tracción: Defensa estructural y soporte">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva4.jpg" alt="Ergonomía y tracción: Puntera y suela de alta resistencia">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva5.jpg" alt="Respuesta táctica a emergencias: Chaquetones y escafandras para bomberos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva6.jpg" alt="Seguridad del entorno y respuesta a emergencias: Vialidad, regaderas y lavaojos">
+                    </div>
+
+                </div>
+
+                <!-- Controles de navegación -->
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
+
+                <!-- Puntos indicadores (ajustados a 6 diapositivas) -->
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
+            </div>
+
+            <!-- Botones debajo del catálogo -->
+            <div class="botones-catalogo">
+                <a href="https://tu-tienda-en-linea.com" target="_blank" class="btn-tienda-header">
+                    🛒 Ir a la Tienda en Línea
+                </a>
+                <!-- IMPORTANTE: Cambia 'ruta-al-catalogo.pdf' por la ruta o enlace a tu PDF real -->
+                <a href="ruta-al-catalogo.pdf" target="_blank" class="btn-tienda-header btn-descarga">
+                    📄 Descargar Catálogo
+                </a>
+            </div>
+
+        </section>
+
+        <!-- Sección Ubicación -->
+        <section id="ubicacion">
+            <h2>Nuestra Ubicación</h2>
+            <p style="margin-bottom: 1rem; color: var(--texto-secundario);">Visítanos en nuestra sucursal principal o realiza tus pedidos en línea.</p>
+            <div class="mapa-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3582.958244679923!2d-96.1189577!3d19.1309634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85c341004130eb8d%3A0xa68c2cf61ecde743!2sSuministros%20Ram%C3%B3n!5e1!3m2!1ses-419!2smx!4v1790234094007!5m2!1ses-419!2smx" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+            </div>
+        </section>
+
+        <!-- Sección Cotizaciones (Formato Profesional con Formspree) -->
+        <section id="Cotizaciones">
+            <h2>Realiza tu cotización y pedido</h2>
+            
+            <!-- Recuerda cambiar TU_CODIGO_AQUI por el link de Formspree -->
+            <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="Nombre" required placeholder="Ej. Juan Pérez">
+                </div>
+
+                <div class="form-group">
+                    <label for="correo">Correo Electrónico Empresarial:</label>
+                    <!-- Formspree necesita que name sea "email" para responder fácilmente -->
+                    <input type="email" id="correo" name="email" required placeholder="Ej.@CorreoEmpresa.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje o Cotización:</label>
+                    <!-- Aquí metimos todas tus peticiones dentro del placeholder para que el usuario sepa qué datos poner -->
+                    <textarea id="mensaje" name="Mensaje" rows="7" required placeholder="Escribe aquí los productos que necesitas cotizar. Por favor, incluye en tu mensaje:Puesto que desempeña, Nombre de la empresa, RFC empresarial y Teléfono de contacto."></textarea>
+                </div>
+
+                <button type="submit">Enviar Solicitud</button>
+            </form> 
+        </section>
+        
+        <!-- Sección Contacto -->
+        <section id="Contacto" class="contacto-seccion">
+            <h2>Contáctanos</h2>
+            <p style="color: var(--texto-secundario);">Estamos listos para atender tus requerimientos de seguridad industrial.</p>
+            
+            <div class="contacto-grid-layout">
+                <!-- Información de Contacto -->
+                <div class="info-contacto">
+                    <h3>Nuestros Datos</h3>
+                    <p>📧 <strong>Correo:</strong> ventas3@suministrosramon.com.mx</p>
+                    <p>📞 <strong>WhatsApp:</strong> +52 229 458 7511</p>
+                    <p>📍 <strong>Ubicación:</strong> Veracruz, Ver.</p>
+                </div>
+
+                <!-- Redes Sociales -->
+                <div class="redes-contacto">
+                    <h3>Síguenos en Redes</h3>
+                    <div class="botones-sociales">
+                        <a href="https://www.facebook.com/share/1FWmMAoujX/" target="_blank" class="btn-social facebook">
+                            📘 Facebook
+                        </a>
+                        <a href="https://www.instagram.com/suministrosramon?stkn=MXNqZHpsNnFxdnU0Yg==" target="_blank" class="btn-social instagram">
+                            📸 Instagram
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <a href="https://tu-tienda-en-linea.com" target="_blank" class="btn-tienda-header">🛒 Visitar Tienda en Línea</a>
+        </section>
+
+    </div>
+
+    <!-- Botón Flotante de WhatsApp -->
+    <a href="https://wa.me/522294587511?text=Hola,%20me%20interesa%20cotizar%20equipo%20de%20seguridad" class="btn-whatsapp" target="_blank">
+        💬 WhatsApp
+    </a>
+
+    <footer>
+        <p>© 2026 SUMINISTROS RAMON - Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Lógica del Carrusel de Catálogo
+        let slideIndex = 0;
+        const slides = document.querySelector('.carousel-slides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function updateCarousel() {
+            // Mueve el contenedor de diapositivas horizontalmente (100% por cada slide)
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Actualiza los puntos indicadores visuales
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            
+            // Si pasa de la última diapositiva, regresa a la primera
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            }
+            // Si retrocede estando en la primera, va a la última
+            if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            }
+            
+            updateCarousel();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            updateCarousel();
+        }
+    </script>
+</body>
+</html>
