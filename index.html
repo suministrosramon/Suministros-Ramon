@@ -268,71 +268,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* Estilos del Catálogo Desplegable */
-        .catalogo-desplegable {
-            display: flex;
-            flex-direction: column;
-            gap: 0.8rem;
-        }
-
-        .categoria-item {
-            background: var(--bg-tarjeta);
-            border: 1px solid var(--borde-tarjeta);
-            border-radius: 6px;
-            overflow: hidden;
-            transition: border-color 0.2s ease;
-        }
-
-        .categoria-item[open] {
-            border-color: var(--amarillo-seguridad);
-        }
-
-        .categoria-titulo {
-            padding: 1rem 1.2rem;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: var(--texto-claro);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            list-style: none;
-            user-select: none;
-            transition: background-color 0.2s ease, color 0.2s ease;
-        }
-
-        .categoria-titulo::-webkit-details-marker {
-            display: none;
-        }
-
-        .categoria-titulo:hover {
-            background-color: rgba(245, 158, 11, 0.1);
-            color: var(--amarillo-seguridad);
-        }
-
-        .icono-flecha {
-            font-size: 0.85rem;
-            color: var(--amarillo-seguridad);
-            display: inline-block;
-            transition: transform 0.3s ease;
-        }
-
-        .categoria-item[open] .icono-flecha {
-            transform: rotate(180deg);
-        }
-
-        .sublista-productos {
-            list-style-type: disc;
-            padding: 1.2rem 2.5rem;
-            background-color: var(--bg-principal);
-            border-top: 1px solid var(--borde-tarjeta);
-        }
-
-        .sublista-productos li {
-            color: var(--texto-secundario);
-            margin-bottom: 0.5rem;
-        }
-
         /* Botones extras al final del catálogo */
         .botones-catalogo {
             display: flex;
@@ -519,6 +454,104 @@
             font-size: 0.9rem;
         }
 
+        /* Estilos Modificados del Carrusel para Imágenes */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-tarjeta);
+            border: 1px solid var(--borde-tarjeta);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+        }
+
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fondo negro para que las imágenes resalten */
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(15, 23, 42, 0.7); /* Fondo semi-transparente sobre la imagen */
+            color: var(--amarillo-seguridad);
+            border: 1px solid var(--amarillo-seguridad);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, transform 0.2s;
+            z-index: 10;
+        }
+
+        .carousel-btn:hover {
+            background-color: var(--amarillo-seguridad);
+            color: #000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-btn.prev {
+            left: 15px;
+        }
+
+        .carousel-btn.next {
+            right: 15px;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 15px; /* Más cerca del borde para no tapar tanto la imagen */
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            background-color: rgba(0, 0, 0, 0.5); /* Fondo sutil para que los puntos se vean */
+            padding: 5px 10px;
+            border-radius: 20px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+            opacity: 0.5;
+        }
+
+        .dot:hover {
+            opacity: 1;
+        }
+
+        .dot.active {
+            background-color: var(--amarillo-seguridad);
+            transform: scale(1.3);
+            opacity: 1;
+        }
+
         /* Media Queries para Móviles */
         @media (max-width: 768px) {
             nav {
@@ -546,6 +579,16 @@
             }
             .contacto-grid-layout {
                 grid-template-columns: 1fr;
+            }
+            .carousel-btn {
+                width: 35px;
+                height: 35px;
+                font-size: 1.2rem;
+                left: 10px;
+            }
+            .carousel-btn.next {
+                right: 10px;
+                left: auto;
             }
         }
     </style>
@@ -631,104 +674,45 @@
         <!-- Sección Catálogo -->
         <section id="catalogo">
             <h2>Catálogo de Productos</h2>
-            <div class="catalogo-desplegable">
-                
-                <details class="categoria-item" open>
-                    <summary class="categoria-titulo">
-                        <span>Protección de cabeza</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Cascos de seguridad dieléctricos</li>
-                        <li>Gorras de protección</li>
-                        <li>Accesorios de suspensión</li>
-                    </ul>
-                </details>
+            
+            <div class="carousel-container">
+                <div class="carousel-slides">
+                    
+                    <!-- Diapositivas de la presentación en imágenes -->
+                    <div class="carousel-slide">
+                        <img src="diapositiva1.jpg" alt="Anatomía de la protección: Catálogo general">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva2.jpg" alt="Protección anatómica del tercio superior: Cabeza, Visual, Respiratoria, Auditiva">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva3.jpg" alt="Calzado ergonómico y máxima tracción: Defensa estructural y soporte">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva4.jpg" alt="Ergonomía y tracción: Puntera y suela de alta resistencia">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva5.jpg" alt="Respuesta táctica a emergencias: Chaquetones y escafandras para bomberos">
+                    </div>
+                    <div class="carousel-slide">
+                        <img src="diapositiva6.jpg" alt="Seguridad del entorno y respuesta a emergencias: Vialidad, regaderas y lavaojos">
+                    </div>
 
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Protección visual</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Lentes antiempañantes UV</li>
-                        <li>Caretas para esmerilar</li>
-                        <li>Goggles de seguridad industrial</li>
-                    </ul>
-                </details>
+                </div>
 
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Protección respiratoria</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Mascarillas desechables N95</li>
-                        <li>Respiradores media cara</li>
-                        <li>Cartuchos para gases/vapores</li>
-                    </ul>
-                </details>
+                <!-- Controles de navegación -->
+                <button class="carousel-btn prev" onclick="moveSlide(-1)">❮</button>
+                <button class="carousel-btn next" onclick="moveSlide(1)">❯</button>
 
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Protección auditiva</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Tapones auditivos reutilizables y desechables</li>
-                        <li>Orejeras de alta atenuación</li>
-                    </ul>
-                </details>
-
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Protección de pies</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Botas con casquillo de poliamida o acero</li>
-                        <li>Suela antiderrapante</li>
-                        <li>Calzado ergonómico</li>
-                    </ul>
-                </details>
-
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Protección para bomberos</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Chaquetones y pantalón de combate</li>
-                        <li>Escafandras</li>
-                        <li>Equipo de protección térmica certificado</li>
-                    </ul>
-                </details>
-
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Regaderas y lavaojos</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Estaciones de emergencia</li>
-                        <li>Regaderas combinadas</li>
-                        <li>Sistemas lavaojos portátiles</li>
-                    </ul>
-                </details>
-
-                <details class="categoria-item">
-                    <summary class="categoria-titulo">
-                        <span>Equipo de vialidad</span>
-                        <span class="icono-flecha">▼</span>
-                    </summary>
-                    <ul class="sublista-productos">
-                        <li>Conos de señalización</li>
-                        <li>Trafitambos</li>
-                        <li>Malla delimitadora</li>
-                        <li>Topes y chalecos reflejantes</li>
-                    </ul>
-                </details>
-
+                <!-- Puntos indicadores (ajustados a 6 diapositivas) -->
+                <div class="carousel-dots">
+                    <span class="dot active" onclick="currentSlide(0)"></span>
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                    <span class="dot" onclick="currentSlide(4)"></span>
+                    <span class="dot" onclick="currentSlide(5)"></span>
+                </div>
             </div>
 
             <!-- Botones debajo del catálogo -->
@@ -819,8 +803,44 @@
     </a>
 
     <footer>
-        <p>&copy; 2026 SUMINISTROS RAMON - Todos los derechos reservados.</p>
+        <p>© 2026 SUMINISTROS RAMON - Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        // Lógica del Carrusel de Catálogo
+        let slideIndex = 0;
+        const slides = document.querySelector('.carousel-slides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = dots.length;
+
+        function updateCarousel() {
+            // Mueve el contenedor de diapositivas horizontalmente (100% por cada slide)
+            slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+            
+            // Actualiza los puntos indicadores visuales
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[slideIndex].classList.add('active');
+        }
+
+        function moveSlide(n) {
+            slideIndex += n;
+            
+            // Si pasa de la última diapositiva, regresa a la primera
+            if (slideIndex >= totalSlides) {
+                slideIndex = 0;
+            }
+            // Si retrocede estando en la primera, va a la última
+            if (slideIndex < 0) {
+                slideIndex = totalSlides - 1;
+            }
+            
+            updateCarousel();
+        }
+
+        function currentSlide(n) {
+            slideIndex = n;
+            updateCarousel();
+        }
+    </script>
 </body>
 </html>
